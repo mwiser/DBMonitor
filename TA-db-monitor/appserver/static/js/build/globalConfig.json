@@ -1,0 +1,455 @@
+{
+    "pages": {
+        "inputs": {
+            "description": "Manage your data inputs", 
+            "title": "Inputs", 
+            "services": [
+                {
+                    "name": "dbinfo", 
+                    "title": "dbinfo", 
+                    "entity": [
+                        {
+                            "type": "text", 
+                            "label": "Name", 
+                            "required": true, 
+                            "help": "Enter a unique name for the data input", 
+                            "validators": [
+                                {
+                                    "type": "regex", 
+                                    "pattern": "^[a-zA-Z]\\w*$", 
+                                    "errorMsg": "Input Name must start with a letter and followed by alphabetic letters, digits or underscores."
+                                }, 
+                                {
+                                    "type": "string", 
+                                    "maxLength": 100, 
+                                    "minLength": 1, 
+                                    "errorMsg": "Length of input name should be between 1 and 100"
+                                }
+                            ], 
+                            "field": "name"
+                        }, 
+                        {
+                            "type": "text", 
+                            "label": "Interval", 
+                            "required": true, 
+                            "help": "Time interval of input in seconds.", 
+                            "validators": [
+                                {
+                                    "type": "regex", 
+                                    "pattern": "^\\-[1-9]\\d*$|^\\d*$", 
+                                    "errorMsg": "Interval must be an integer."
+                                }
+                            ], 
+                            "field": "interval"
+                        }, 
+                        {
+                            "type": "singleSelect", 
+                            "label": "Index", 
+                            "required": true, 
+                            "options": {
+                                "endpointUrl": "data/indexes", 
+                                "blackList": "^_.*$", 
+                                "createSearchChoice": true
+                            }, 
+                            "validators": [
+                                {
+                                    "type": "string", 
+                                    "maxLength": 80, 
+                                    "minLength": 1, 
+                                    "errorMsg": "Length of index name should be between 1 and 80."
+                                }
+                            ], 
+                            "field": "index", 
+                            "defaultValue": "default"
+                        }, 
+                        {
+                            "type": "text", 
+                            "label": "ServerList", 
+                            "required": true, 
+                            "help": "", 
+                            "options": {
+                                "placeholder": "myprodservers.csv"
+                            }, 
+                            "validators": [
+                                {
+                                    "type": "string", 
+                                    "maxLength": 8192, 
+                                    "minLength": 0, 
+                                    "errorMsg": "Max length of text input is 8192"
+                                }
+                            ], 
+                            "field": "serverlist"
+                        }, 
+                        {
+                            "type": "text", 
+                            "label": "SuicideMode", 
+                            "required": true, 
+                            "help": "", 
+                            "options": {
+                                "placeholder": "23:55"
+                            }, 
+                            "validators": [
+                                {
+                                    "type": "string", 
+                                    "maxLength": 8192, 
+                                    "minLength": 0, 
+                                    "errorMsg": "Max length of text input is 8192"
+                                }
+                            ], 
+                            "field": "suicidemode", 
+                            "defaultValue": "23:55"
+                        }, 
+                        {
+                            "type": "text", 
+                            "label": "MS-SQL Integrated Sec Domain", 
+                            "required": false, 
+                            "help": "", 
+                            "options": {
+                                "placeholder": "SQL"
+                            }, 
+                            "validators": [
+                                {
+                                    "type": "string", 
+                                    "maxLength": 8192, 
+                                    "minLength": 0, 
+                                    "errorMsg": "Max length of text input is 8192"
+                                }
+                            ], 
+                            "field": "ms_sql_integrated_sec_domain", 
+                            "defaultValue": "SQL"
+                        }, 
+                        {
+                            "type": "checkbox", 
+                            "label": "debugMode", 
+                            "required": false, 
+                            "help": "", 
+                            "field": "debugmode", 
+                            "defaultValue": true
+                        }, 
+                        {
+                            "type": "checkbox", 
+                            "help": "", 
+                            "label": "Use Splunk Search", 
+                            "field": "use_splunk_search", 
+                            "required": false
+                        }, 
+                        {
+                            "type": "text", 
+                            "label": "Search", 
+                            "required": false, 
+                            "help": "", 
+                            "options": {
+                                "placeholder": "index=*"
+                            }, 
+                            "validators": [
+                                {
+                                    "type": "string", 
+                                    "maxLength": 8192, 
+                                    "minLength": 0, 
+                                    "errorMsg": "Max length of text input is 8192"
+                                }
+                            ], 
+                            "field": "search"
+                        }, 
+                        {
+                            "type": "text", 
+                            "label": "SplunkUser", 
+                            "required": false, 
+                            "help": "", 
+                            "validators": [
+                                {
+                                    "type": "string", 
+                                    "maxLength": 8192, 
+                                    "minLength": 0, 
+                                    "errorMsg": "Max length of text input is 8192"
+                                }
+                            ], 
+                            "field": "splunkuser"
+                        }, 
+                        {
+                            "type": "text", 
+                            "label": "SplunkPassword", 
+                            "encrypted": true, 
+                            "required": false, 
+                            "help": "", 
+                            "validators": [
+                                {
+                                    "type": "string", 
+                                    "maxLength": 8192, 
+                                    "minLength": 0, 
+                                    "errorMsg": "Max length of password is 8192"
+                                }
+                            ], 
+                            "field": "splunkpassword"
+                        }, 
+                        {
+                            "type": "text", 
+                            "label": "SplunkServer", 
+                            "required": false, 
+                            "help": "", 
+                            "validators": [
+                                {
+                                    "type": "string", 
+                                    "maxLength": 8192, 
+                                    "minLength": 0, 
+                                    "errorMsg": "Max length of text input is 8192"
+                                }
+                            ], 
+                            "field": "splunkserver"
+                        }, 
+                        {
+                            "type": "text", 
+                            "label": "SplunkPort", 
+                            "required": false, 
+                            "help": "", 
+                            "validators": [
+                                {
+                                    "type": "string", 
+                                    "maxLength": 8192, 
+                                    "minLength": 0, 
+                                    "errorMsg": "Max length of text input is 8192"
+                                }
+                            ], 
+                            "field": "splunkport"
+                        }
+                    ]
+                }
+            ], 
+            "table": {
+                "actions": [
+                    "edit", 
+                    "enable", 
+                    "delete", 
+                    "clone"
+                ], 
+                "header": [
+                    {
+                        "label": "Name", 
+                        "field": "name"
+                    }, 
+                    {
+                        "label": "Interval", 
+                        "field": "interval"
+                    }, 
+                    {
+                        "label": "Index", 
+                        "field": "index"
+                    }, 
+                    {
+                        "label": "Status", 
+                        "field": "disabled"
+                    }
+                ], 
+                "moreInfo": [
+                    {
+                        "label": "Name", 
+                        "field": "name"
+                    }, 
+                    {
+                        "label": "Interval", 
+                        "field": "interval"
+                    }, 
+                    {
+                        "label": "Index", 
+                        "field": "index"
+                    }, 
+                    {
+                        "label": "Status", 
+                        "field": "disabled"
+                    }, 
+                    {
+                        "label": "ServerList", 
+                        "field": "serverlist"
+                    }, 
+                    {
+                        "label": "SuicideMode", 
+                        "field": "suicidemode"
+                    }, 
+                    {
+                        "label": "MS-SQL Integrated Sec Domain", 
+                        "field": "ms_sql_integrated_sec_domain"
+                    }, 
+                    {
+                        "label": "debugMode", 
+                        "field": "debugmode"
+                    }, 
+                    {
+                        "label": "Use Splunk Search", 
+                        "field": "use_splunk_search"
+                    }, 
+                    {
+                        "label": "Search", 
+                        "field": "search"
+                    }, 
+                    {
+                        "label": "SplunkUser", 
+                        "field": "splunkuser"
+                    }, 
+                    {
+                        "label": "SplunkPassword", 
+                        "field": "splunkpassword"
+                    }, 
+                    {
+                        "label": "SplunkServer", 
+                        "field": "splunkserver"
+                    }, 
+                    {
+                        "label": "SplunkPort", 
+                        "field": "splunkport"
+                    }
+                ]
+            }
+        }, 
+        "configuration": {
+            "description": "Set up your add-on", 
+            "title": "Configuration", 
+            "tabs": [
+                {
+                    "name": "logging", 
+                    "title": "Logging", 
+                    "entity": [
+                        {
+                            "type": "singleSelect", 
+                            "options": {
+                                "disableSearch": true, 
+                                "autoCompleteFields": [
+                                    {
+                                        "value": "DEBUG", 
+                                        "label": "DEBUG"
+                                    }, 
+                                    {
+                                        "value": "INFO", 
+                                        "label": "INFO"
+                                    }, 
+                                    {
+                                        "value": "WARNING", 
+                                        "label": "WARNING"
+                                    }, 
+                                    {
+                                        "value": "ERROR", 
+                                        "label": "ERROR"
+                                    }, 
+                                    {
+                                        "value": "CRITICAL", 
+                                        "label": "CRITICAL"
+                                    }
+                                ]
+                            }, 
+                            "label": "Log level", 
+                            "field": "loglevel", 
+                            "defaultValue": "INFO"
+                        }
+                    ]
+                }, 
+                {
+                    "name": "additional_parameters", 
+                    "title": "Add-on Settings", 
+                    "entity": [
+                        {
+                            "type": "text", 
+                            "label": "HEC Token", 
+                            "required": true, 
+                            "help": "", 
+                            "options": {
+                                "placeholder": "6b1413a3-d992-483f-9963-0778aadc7138"
+                            }, 
+                            "validators": [
+                                {
+                                    "type": "string", 
+                                    "maxLength": 8192, 
+                                    "minLength": 0, 
+                                    "errorMsg": "Max length of text input is 8192"
+                                }
+                            ], 
+                            "field": "hec_token", 
+                            "defaultValue": "6b1413a3-d992-483f-9963-0778aadc7138"
+                        }, 
+                        {
+                            "type": "text", 
+                            "label": "HEC Server:Port", 
+                            "required": true, 
+                            "help": "", 
+                            "options": {
+                                "placeholder": "localhost:8088"
+                            }, 
+                            "validators": [
+                                {
+                                    "type": "string", 
+                                    "maxLength": 8192, 
+                                    "minLength": 0, 
+                                    "errorMsg": "Max length of text input is 8192"
+                                }
+                            ], 
+                            "field": "hec_server_port", 
+                            "defaultValue": "localhost:8088"
+                        }, 
+                        {
+                            "type": "text", 
+                            "label": "WorkingDirectory", 
+                            "required": true, 
+                            "help": "", 
+                            "options": {
+                                "placeholder": "/opt/splunk/etc/apps/TA-db-monitor/static"
+                            }, 
+                            "validators": [
+                                {
+                                    "type": "string", 
+                                    "maxLength": 8192, 
+                                    "minLength": 0, 
+                                    "errorMsg": "Max length of text input is 8192"
+                                }
+                            ], 
+                            "field": "workingdirectory", 
+                            "defaultValue": "/opt/splunk/etc/apps/TA-db-monitor/static"
+                        }, 
+                        {
+                            "type": "text", 
+                            "label": "Java Parameters", 
+                            "required": true, 
+                            "help": "", 
+                            "options": {
+                                "placeholder": "-Xms256m -Xmx2048m"
+                            }, 
+                            "validators": [
+                                {
+                                    "type": "string", 
+                                    "maxLength": 8192, 
+                                    "minLength": 0, 
+                                    "errorMsg": "Max length of text input is 8192"
+                                }
+                            ], 
+                            "field": "java_parameters", 
+                            "defaultValue": "-Xms256m -Xmx2048m"
+                        }, 
+                        {
+                            "type": "text", 
+                            "label": "CyberArkPath", 
+                            "required": true, 
+                            "help": "", 
+                            "options": {
+                                "placeholder": "python /opt/splunk/etc/apps/TA-db-monitor/static/getaccount.py -n"
+                            }, 
+                            "validators": [
+                                {
+                                    "type": "string", 
+                                    "maxLength": 8192, 
+                                    "minLength": 0, 
+                                    "errorMsg": "Max length of text input is 8192"
+                                }
+                            ], 
+                            "field": "cyberarkpath", 
+                            "defaultValue": "python /opt/splunk/etc/apps/TA-db-monitor/static/getaccount.py -n"
+                        }
+                    ]
+                }
+            ]
+        }
+    }, 
+    "meta": {
+        "displayName": "DB Monitor", 
+        "name": "TA-db-monitor", 
+        "apiVersion": "3.0.0", 
+        "restRoot": "TA_db_monitor", 
+        "version": "1.0.0"
+    }
+}

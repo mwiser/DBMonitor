@@ -1,0 +1,40 @@
+[props/dbinfo]
+owner = admin
+version = 7.3.0
+modtime = 1568822736.513524000
+
+[props/source%3A%3A...ta-db-monitor%2A.log%2A]
+owner = admin
+version = 7.3.0
+modtime = 1568822736.820584000
+
+[props/source%3A%3A...ta_db_monitor%2A.log%2A]
+owner = admin
+version = 7.3.0
+modtime = 1568822737.222683000
+
+[indexes/dbmon]
+owner = admin
+version = 7.3.0
+modtime = 1569275925.613310000
+
+[inputs/http%3A%2F%2FDBMonitor]
+access = read : [ admin ], write : [ admin ]
+export = system
+owner = admin
+version = 7.3.0
+modtime = 1569275968.770440000
+
+[ta_db_monitor_settings/additional_parameters]
+version = 7.3.0
+modtime = 1569278091.627605000
+
+[inputs/dbinfo%3A%2F%2FDB2]
+owner = admin
+version = 7.3.0
+modtime = 1569278373.018431000
+
+[inputs/dbinfo%3A%2F%2Fpsql]
+owner = admin
+version = 7.3.0
+modtime = 1569359790.027422000
